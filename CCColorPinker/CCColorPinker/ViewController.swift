@@ -23,12 +23,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func modalColorPinker(_ sender: UIButton) {
-        //蒙板效果
+        // 蒙板效果
         let blurView = UIToolbar.init(frame: self.view.bounds)
         blurView.barStyle = .blackTranslucent
         self.view.addSubview(blurView)
+       // CCColorPinker
+        let colorPinker = UIView();
         
     }
     
 }
+
 

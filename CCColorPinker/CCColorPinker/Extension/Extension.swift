@@ -16,3 +16,23 @@ extension UIColor {
         return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
+
+extension UILabel {
+    convenience init(text: String?,fontSize: CGFloat?,color: UIColor?) {
+        self.init()
+        self.text = text
+        if let fontSize = fontSize {
+            self.font = UIFont.systemFont(ofSize: fontSize)
+        }
+        if let color = color {
+            self.textColor = color
+        }
+    }
+}
+
+extension UIButton {
+    convenience init(text: String?) {
+        self.init()
+        self.titleLabel?.text = text
+    }
+}

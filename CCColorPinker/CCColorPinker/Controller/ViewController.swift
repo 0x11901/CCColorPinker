@@ -28,8 +28,7 @@ class ViewController: UIViewController {
         blurView.barStyle = .blackTranslucent
         self.view.addSubview(blurView)
         // CCColorPinker
-        let colorPinker = UIView();
-        // #303D52
+        let colorPinker = CCColorPinker();
         colorPinker.backgroundColor = UIColor.colorWithHex(hex: 0x303D52)
         
         

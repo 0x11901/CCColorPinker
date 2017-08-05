@@ -81,6 +81,14 @@ extension CCColorPinker {
         // 滑条
         self.addSubview(greySlider)
         self.addSubview(alphaSlider)
+        
+        // 自定义滑条
+        greySlider.setThumbImage(getThumbImage(radius: 10), for: .normal)
+        
+        alphaSlider.setMinimumTrackImage(getTrackImage(color: UIColor.white, height: 4), for: .normal)
+        alphaSlider.setMaximumTrackImage(getTrackImage(color: UIColor.white, height: 4), for: .normal)
+        alphaSlider.setThumbImage(getThumbImage(radius: 10), for: .normal)
+        
         greySlider.translatesAutoresizingMaskIntoConstraints = false
         alphaSlider.translatesAutoresizingMaskIntoConstraints =  false
         self.addConstraint(NSLayoutConstraint.init(item: greySlider, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
@@ -109,8 +117,45 @@ extension CCColorPinker {
     
 }
 
-
-
+// MARK: - 自定义滑条
+extension CCColorPinker {
+    
+    fileprivate func getTrackImage(color: UIColor,height: CGFloat) -> UIImage  {
+        let size = CGSize.init(width:  1, height: height)
+        let rect = CGRect.init(origin: CGPoint.init(x: 0, y: 0), size: size)
+        UIGraphicsBeginImageContext(size)
+        color.setFill()
+        UIRectFill(rect)
+        let trackImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return trackImage!
+    }
+    
+    fileprivate func getThumbImage(radius:CGFloat) -> UIImage {
+        let diameter = radius * 2
+        let size = CGSize.init(width: diameter, height: diameter)
+        let rect = CGRect.init(origin: CGPoint.init(x: diameter * 0.1, y: diameter * 0.1), size: CGSize.init(width: diameter * 0.8, height: diameter * 0.8))
+        UIGraphicsBeginImageContext(size)
+        let path = UIBezierPath.init(ovalIn: rect)
+        UIColor.white.setFill()
+        UIColor.black.setStroke()
+        path.lineWidth = diameter * 0.2
+        path.stroke()
+        path.fill()
+        let thumbImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return thumbImage!
+    }
+    
+    
+    fileprivate func getGradientTrackImage(height: CGFloat) -> UIImage  {
+        let size = CGSize.init(width: 40, height: height)
+        UIGraphicsBeginImageContext(size)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}
 
 
 

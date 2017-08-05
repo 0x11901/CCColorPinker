@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F82142B91F3595F1008C5FC7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82142B81F3595F1008C5FC7 /* Extension.swift */; };
+		F82142BB1F3595F9008C5FC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82142BA1F3595F9008C5FC7 /* ViewController.swift */; };
 		F8DB99981F34C96100C42158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DB99971F34C96100C42158 /* AppDelegate.swift */; };
-		F8DB999A1F34C96100C42158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DB99991F34C96100C42158 /* ViewController.swift */; };
 		F8DB999D1F34C96100C42158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8DB999B1F34C96100C42158 /* Main.storyboard */; };
 		F8DB999F1F34C96100C42158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8DB999E1F34C96100C42158 /* Assets.xcassets */; };
 		F8DB99A21F34C96100C42158 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8DB99A01F34C96100C42158 /* LaunchScreen.storyboard */; };
-		F8DB99AA1F34D4A700C42158 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DB99A91F34D4A700C42158 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F82142B81F3595F1008C5FC7 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		F82142BA1F3595F9008C5FC7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8DB99941F34C96100C42158 /* CCColorPinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCColorPinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8DB99971F34C96100C42158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8DB99991F34C96100C42158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F8DB999C1F34C96100C42158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8DB999E1F34C96100C42158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8DB99A11F34C96100C42158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8DB99A31F34C96100C42158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8DB99A91F34D4A700C42158 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +37,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F82142B41F359536008C5FC7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F82142BA1F3595F9008C5FC7 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F82142B51F359536008C5FC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F82142B61F359536008C5FC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F82142B71F359589008C5FC7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F82142B81F3595F1008C5FC7 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F8DB998B1F34C96100C42158 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +86,11 @@
 		F8DB99961F34C96100C42158 /* CCColorPinker */ = {
 			isa = PBXGroup;
 			children = (
+				F82142B61F359536008C5FC7 /* Model */,
+				F82142B51F359536008C5FC7 /* View */,
+				F82142B41F359536008C5FC7 /* Controller */,
+				F82142B71F359589008C5FC7 /* Extension */,
 				F8DB99971F34C96100C42158 /* AppDelegate.swift */,
-				F8DB99991F34C96100C42158 /* ViewController.swift */,
-				F8DB99A91F34D4A700C42158 /* Extension.swift */,
 				F8DB999B1F34C96100C42158 /* Main.storyboard */,
 				F8DB999E1F34C96100C42158 /* Assets.xcassets */,
 				F8DB99A01F34C96100C42158 /* LaunchScreen.storyboard */,
@@ -140,9 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8DB99AA1F34D4A700C42158 /* Extension.swift in Sources */,
-				F8DB999A1F34C96100C42158 /* ViewController.swift in Sources */,
+				F82142BB1F3595F9008C5FC7 /* ViewController.swift in Sources */,
 				F8DB99981F34C96100C42158 /* AppDelegate.swift in Sources */,
+				F82142B91F3595F1008C5FC7 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +342,7 @@
 				F8DB99A81F34C96100C42158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

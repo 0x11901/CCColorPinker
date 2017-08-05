@@ -11,6 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var colorVIew: UIView!
+    // 蒙板效果
+    fileprivate lazy var blurView: UIToolbar = {
+        let blurView = UIToolbar.init(frame: self.view.bounds)
+        blurView.barStyle = .blackTranslucent
+        return blurView
+    }()
+    // 颜色选择器视图
+    fileprivate lazy var colorPinker: CCColorPinker = {
+        let colorPinker = CCColorPinker();
+        return colorPinker
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +35,12 @@ class ViewController: UIViewController {
     
     @IBAction func modalColorPinker(_ sender: UIButton) {
         // 蒙板效果
-        let blurView = UIToolbar.init(frame: self.view.bounds)
-        blurView.barStyle = .blackTranslucent
+        
         self.view.addSubview(blurView)
         // CCColorPinker
-        let colorPinker = CCColorPinker();
-        colorPinker.backgroundColor = UIColor.colorWithHex(hex: 0x303D52)
         
+        colorPinker.delegete = self
+        colorPinker.backgroundColor = UIColor.colorWithHex(hex: 0x303D52)
         
         //布局
         let widthFix = 0.85
@@ -42,6 +52,21 @@ class ViewController: UIViewController {
         self.view.addConstraint(NSLayoutConstraint.init(item: colorPinker, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: CGFloat(widthFix), constant: 0))
         self.view.addConstraint(NSLayoutConstraint.init(item: colorPinker, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: CGFloat(heightFix), constant: 0))
     }
+}
+
+// MARK: - CCColorPinkerDelegete
+extension ViewController: CCColorPinkerDelegete {
+    
+    func colorPinker(_ colorPinker: CCColorPinker, didSelectedCancelButton sender: UIButton) {
+        colorPinker.removeFromSuperview()
+        blurView.removeFromSuperview()
+    }
+    
+    func colorPinker(_ colorPinker: CCColorPinker, didSelectedConfirmButton sender: UIButton) {
+        colorPinker.removeFromSuperview()
+        blurView.removeFromSuperview()
+    }
+    
 }
 
 

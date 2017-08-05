@@ -84,6 +84,8 @@ extension CCColorPinker {
         
         // 自定义滑条
         greySlider.setThumbImage(getThumbImage(radius: 10), for: .normal)
+        greySlider.setMinimumTrackImage(getGradientTrackImage(height: 4), for: .normal)
+        greySlider.setMaximumTrackImage(getGradientTrackImage(height: 4), for: .normal)
         
         alphaSlider.setMinimumTrackImage(getTrackImage(color: UIColor.white, height: 4), for: .normal)
         alphaSlider.setMaximumTrackImage(getTrackImage(color: UIColor.white, height: 4), for: .normal)
@@ -151,6 +153,11 @@ extension CCColorPinker {
     fileprivate func getGradientTrackImage(height: CGFloat) -> UIImage  {
         let size = CGSize.init(width: 40, height: height)
         UIGraphicsBeginImageContext(size)
+        let compoents:[CGFloat] = [ 0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0]
+        let locations:[CGFloat] = [0,1]
+        let gradient = CGGradient.init(colorSpace: CGColorSpaceCreateDeviceRGB(), colorComponents: compoents, locations: locations, count: locations.count)
+        let context = UIGraphicsGetCurrentContext()
+        context?.drawLinearGradient(gradient!, start: CGPoint.zero, end: CGPoint.init(x: 40, y: 0), options: .drawsAfterEndLocation)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image!

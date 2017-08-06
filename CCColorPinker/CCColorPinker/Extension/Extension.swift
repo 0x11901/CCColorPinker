@@ -15,6 +15,10 @@ extension UIColor {
         let blue: CGFloat = CGFloat(hex & 0xff) / 255.0
         return UIColor.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
+    
+    class func randomColor() -> UIColor {
+        return UIColor.init(red: CGFloat(Double(arc4random_uniform(256)) / 255.0), green: CGFloat(Double(arc4random_uniform(256)) / 255.0), blue: CGFloat(Double(arc4random_uniform(256)) / 255.0), alpha: 1.0)
+    }
 }
 
 extension UILabel {

@@ -35,10 +35,9 @@ class ViewController: UIViewController {
     
     @IBAction func modalColorPinker(_ sender: UIButton) {
         // 蒙板效果
-        
         self.view.addSubview(blurView)
-        // CCColorPinker
         
+        // CCColorPinker
         colorPinker.delegete = self
         colorPinker.backgroundColor = UIColor.colorWithHex(hex: 0x303D52)
         

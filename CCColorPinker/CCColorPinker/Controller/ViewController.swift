@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         self.view.addConstraint(NSLayoutConstraint.init(item: colorPinker, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: CGFloat(widthFix), constant: 0))
         self.view.addConstraint(NSLayoutConstraint.init(item: colorPinker, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: CGFloat(heightFix), constant: 0))
     }
+    
 }
 
 // MARK: - CCColorPinkerDelegete

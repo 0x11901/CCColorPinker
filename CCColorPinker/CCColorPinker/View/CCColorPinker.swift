@@ -48,6 +48,12 @@ class CCColorPinker: UIView {
         return s
     }()
     
+    // 颜色选择盘
+    fileprivate lazy var colorPlate: CCColorPlate = {
+        let cp = CCColorPlate()
+        return cp
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -96,12 +102,21 @@ extension CCColorPinker {
         self.addConstraint(NSLayoutConstraint.init(item: greySlider, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint.init(item: greySlider, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 20))
         self.addConstraint(NSLayoutConstraint.init(item: greySlider, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -20))
-        self.addConstraint(NSLayoutConstraint.init(item: greySlider, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.4, constant: 0))
+        self.addConstraint(NSLayoutConstraint.init(item: greySlider, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.46, constant: 0))
         
         self.addConstraint(NSLayoutConstraint.init(item: alphaSlider, attribute: .centerX, relatedBy: .equal, toItem: greySlider, attribute: .centerX, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint.init(item: alphaSlider, attribute: .leading, relatedBy: .equal, toItem: greySlider, attribute: .leading, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint.init(item: alphaSlider, attribute: .trailing, relatedBy: .equal, toItem: greySlider, attribute: .trailing, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint.init(item: alphaSlider, attribute: .top, relatedBy: .equal, toItem: greySlider, attribute: .bottom, multiplier: 1, constant: 20))
+        
+        self.addSubview(colorPlate)
+        colorPlate.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraint(NSLayoutConstraint.init(item: colorPlate, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.8, constant: 0))
+        self.addConstraint(NSLayoutConstraint.init(item: colorPlate, attribute: .height, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.8, constant: 0))
+        self.addConstraint(NSLayoutConstraint.init(item: colorPlate, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint.init(item: colorPlate, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 0.8, constant: 0))
+        
+        
     }
     
 }

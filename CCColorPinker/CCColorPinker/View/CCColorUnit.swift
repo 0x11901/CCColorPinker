@@ -10,13 +10,18 @@ import UIKit
 
 class CCColorUnit: UIView {
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.randomColor()
+    init(radius: CGFloat) {
+        let diameter = radius * 2
+        let rect = CGRect.init(x: 0, y: 0, width: diameter, height: diameter)
+        super.init(frame: rect)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
     }
     
 }

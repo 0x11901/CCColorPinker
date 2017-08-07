@@ -25,6 +25,14 @@ extension CCColorPlate {
     
     fileprivate func setupUI() {
         self.backgroundColor = UIColor.clear
+        let radius = UIScreen.main.bounds.size.width / 20
+        let unit = CCColorUnit.init(radius: radius)
+        layoutIfNeeded()
+        
+        unit.center = self.center
+        self.addSubview(unit)
+//        unit.transform.
+        
         /*
             一共十层
             第一层1个
@@ -34,9 +42,10 @@ extension CCColorPlate {
         */
         for i in 0..<10 {
             for j in 0..<20 {
-                print("\(i): \(j)")
+//                print("\(i): \(j)")
             }
         }
+        
     }
     
 }

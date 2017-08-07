@@ -49,7 +49,7 @@ class CCColorPinker: UIView {
     }()
     
     // 颜色选择盘
-    fileprivate lazy var colorPlate: CCColorPlate = {
+    public lazy var colorPlate: CCColorPlate = {
         let cp = CCColorPlate()
         return cp
     }()

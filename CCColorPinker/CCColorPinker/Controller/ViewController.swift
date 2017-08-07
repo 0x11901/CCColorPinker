@@ -9,14 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController {
+    static var flag = true
+    
+    override func viewDidLayoutSubviews() {
+        print("hello world")
+        if ViewController.flag && (self.colorPinker.subviews.last != nil) {
+            print("hello world")
+            ViewController.flag = false
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        print("hello world")
+    }
     
     @IBOutlet weak var colorVIew: UIView!
     // 蒙板效果
-    fileprivate lazy var blurView: UIToolbar = {
-        let blurView = UIToolbar.init(frame: self.view.bounds)
-        blurView.barStyle = .blackTranslucent
+    //    fileprivate lazy var blurView: UIToolbar = {
+    //        let blurView = UIToolbar.init(frame: self.view.bounds)
+    //        blurView.barStyle = .blackTranslucent
+    //        return blurView
+    //    }()
+    fileprivate lazy var blurView: UIView = {
+        let blurView = UIView.init(frame: self.view.bounds)
+        blurView.backgroundColor = UIColor.black
         return blurView
     }()
+    
     // 颜色选择器视图
     fileprivate lazy var colorPinker: CCColorPinker = {
         let colorPinker = CCColorPinker();

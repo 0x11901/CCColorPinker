@@ -17,7 +17,6 @@ class CCColorUnit: UIView {
         self.diameter = diameter
         let rect = CGRect.init(x: 0, y: 0, width: diameter, height: diameter)
         super.init(frame: rect)
-        self.backgroundColor = UIColor.randomColor()
         self.layer.masksToBounds = true
         self.layer.cornerRadius = radius
     }

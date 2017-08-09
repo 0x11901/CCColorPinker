@@ -9,8 +9,10 @@
 import UIKit
 
 class CCColorPlate: UIView {
+    public var unitAlpha: CGFloat
     
     override init(frame: CGRect) {
+        self.unitAlpha = 1.0
         super.init(frame: frame)
         setupUI()
     }
@@ -48,12 +50,12 @@ extension CCColorPlate {
         // 暂时没有找到好的方法，只有愚蠢的计算frame
         
         /*
-            一共十层
-            第一层1个
-            第二层12个
-            第三层19个
-            以后20个
-        */
+         一共十层
+         第一层1个
+         第二层12个
+         第三层19个
+         以后20个
+         */
         let ratio: [CGFloat] = [1.0,0.4,0.58,0.69,0.79,0.89,0.99,1.1,1.2,1.3];
         for i in 0..<10 {
             for j in 0..<20 {
@@ -67,11 +69,15 @@ extension CCColorPlate {
                 let unit = CCColorUnit.init(radius: radius * ratio[i])
                 unit.center = CGPoint.init(x: centerXY, y: centerXY)
                 self.addSubview(unit)
-                var x: CGFloat;
-                var y: CGFloat;
-                var angle: CGFloat;
+                var x: CGFloat
+                var y: CGFloat
+                var angle: CGFloat
                 let distence: CGFloat = 1.75 * radius
+                var red: CGFloat = 1
+                var green: CGFloat = 1
+                var blue: CGFloat = 1
                 if i == 0 {
+                    unit.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1)
                     continue
                 }else if i == 1 {
                     angle = CGFloat(Double.pi * 2 / 12) * CGFloat(j)
@@ -80,9 +86,39 @@ extension CCColorPlate {
                 }else{
                     angle = CGFloat(Double.pi * 2 / 20) * CGFloat(j) + (CGFloat(Double.pi * 2 / 20) / 2) * CGFloat((i + 1) % 2)
                 }
+                var cosAngle: CGFloat
+                // 红
+                if (angle > CGFloat.pi * 2 / 3) && (angle < CGFloat.pi * 4 / 3) {
+                    red = 0
+                }else{
+                    if angle < CGFloat.pi * 2 / 3 {
+                        cosAngle = angle * 3 / 4
+                    }else{
+                        cosAngle = (angle - CGFloat.pi * 2) * 3 / 4
+                    }
+                    red = 1.0 * cos(cosAngle)
+                }
+                // 蓝
+                if (angle > CGFloat.pi * 4 / 3) {
+                    blue = 0
+                }else{
+                    cosAngle = angle * 3 / 4
+                    blue = 1.0 * sin(cosAngle)
+                }
+                // 绿
+                if (angle > CGFloat.pi * 4 / 3) {
+                    green = 0
+                }else{
+                    cosAngle = angle * 3 / 4 - CGFloat.pi / 2
+                    green = 1.0 * cos(cosAngle)
+                }
                 x = distence * CGFloat(i) * cos(angle)
                 y = distence * CGFloat(i) * sin(angle)
+                red = 0
+                green = 0
+//                blue = 0
                 unit.transform = unit.transform.translatedBy(x: x, y: y)
+                unit.backgroundColor = UIColor.init(red: red, green: green, blue: blue, alpha: unitAlpha)
             }
         }
         

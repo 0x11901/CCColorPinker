@@ -9,20 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    static var flag = true
-    
-    override func viewDidLayoutSubviews() {
-        print("hello world")
-        if ViewController.flag && (self.colorPinker.subviews.last != nil) {
-            print("hello world")
-            ViewController.flag = false
-        }
-    }
-    
-    override func viewWillLayoutSubviews() {
-        print("hello world")
-    }
-    
+
     @IBOutlet weak var colorVIew: UIView!
     // 蒙板效果
     //    fileprivate lazy var blurView: UIToolbar = {

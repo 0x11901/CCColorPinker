@@ -99,11 +99,11 @@ extension CCColorPlate {
                     red = 1.0 * cos(cosAngle)
                 }
                 // 蓝
-                if (angle > CGFloat.pi * 4 / 3) {
+                if angle <= (CGFloat.pi * 2 / 3) {
                     blue = 0
                 }else{
-                    cosAngle = angle * 3 / 4
-                    blue = 1.0 * sin(cosAngle)
+                    cosAngle = angle * 3 / 4 - CGFloat.pi
+                    blue = 1.0 * cos(cosAngle)
                 }
                 // 绿
                 if (angle > CGFloat.pi * 4 / 3) {
@@ -114,10 +114,10 @@ extension CCColorPlate {
                 }
                 x = distence * CGFloat(i) * cos(angle)
                 y = distence * CGFloat(i) * sin(angle)
-                red = 0
-                green = 0
-//                blue = 0
                 unit.transform = unit.transform.translatedBy(x: x, y: y)
+                red = red + ((1 - red) / 9) * CGFloat(9 - i)
+                green = green + ((1 - green) / 9) * CGFloat(9 - i)
+                blue = blue + ((1 - blue) / 9) * CGFloat(9 - i)
                 unit.backgroundColor = UIColor.init(red: red, green: green, blue: blue, alpha: unitAlpha)
             }
         }

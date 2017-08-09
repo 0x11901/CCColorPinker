@@ -28,22 +28,22 @@ extension CCColorPlate {
     fileprivate func setupUI() {
         self.backgroundColor = UIColor.clear
         
-        let x = UIView()
-        let y = UIView()
-        self.addSubview(x)
-        self.addSubview(y)
-        x.backgroundColor = UIColor.cyan
-        y.backgroundColor = UIColor.cyan
-        x.translatesAutoresizingMaskIntoConstraints = false
-        y.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1))
-        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1))
+//        let x = UIView()
+//        let y = UIView()
+//        self.addSubview(x)
+//        self.addSubview(y)
+//        x.backgroundColor = UIColor.cyan
+//        y.backgroundColor = UIColor.cyan
+//        x.translatesAutoresizingMaskIntoConstraints = false
+//        y.translatesAutoresizingMaskIntoConstraints = false
+//        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint.init(item: x, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1))
+//        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0))
+//        self.addConstraint(NSLayoutConstraint.init(item: y, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 1))
         
         let radius = UIScreen.main.bounds.size.width / 44
         let centerXY = UIScreen.main.bounds.size.width * 0.85 * 0.8 * 0.5

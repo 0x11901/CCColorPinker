@@ -15,22 +15,21 @@ class CCColorUnit: UIView {
         self.radius = radius
         let diameter = radius * 2
         self.diameter = diameter
-        let rect = CGRect.init(x: 0, y: 0, width: diameter, height: diameter)
+        let rect = CGRect(x: 0, y: 0, width: diameter, height: diameter)
         super.init(frame: rect)
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = radius
+        layer.masksToBounds = true
+        layer.cornerRadius = radius
     }
-    
-    required init?(coder aDecoder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 //    override func draw(_ rect: CGRect) {
-////        let size = CGSize.init(width: diameter, height: diameter)
+    ////        let size = CGSize.init(width: diameter, height: diameter)
 //        let rect = CGRect.init(x: 0, y: 0, width: diameter, height: diameter)
 //        let path = UIBezierPath.init(ovalIn: rect)
 //        UIColor.randomColor().setFill()
 //        path.fill()
 //    }
-    
 }
